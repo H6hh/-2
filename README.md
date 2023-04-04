@@ -12,4 +12,21 @@ dst = cv2.flip(src, flipCode)
 – src表示原始图像
 – flipCode表示翻转方向，如果flipCode为0，则以X轴为对称轴翻转，如果fliipCode>0则以Y轴为对称轴翻转，如果flipCode<0则在X轴、Y轴方向同时翻转。
 下图是实现三个方向的镜像  
-![G59%~ 4_`8PYWFVYOIZF`76](https://user-images.githubusercontent.com/98206033/229681910-9091650d-32d6-4928-9cff-695565da2ac1.png)
+![G59%~ 4_`8PYWFVYOIZF`76](https://user-images.githubusercontent.com/98206033/229681910-9091650d-32d6-4928-9cff-695565da2ac1.png)  
+图像旋转是指图像以某一点为中心旋转一定的角度，形成一幅新的图像的过程。图像旋转变换会有一个旋转中心，这个旋转中心一般为图像的中心，旋转之后图像的大小一般会发生改变。图6-8表示原始图像的坐标(x0, y0)旋转至(x1, y1)的过程。
+![V5{4S F9GGK39DXFHMK3X56](https://user-images.githubusercontent.com/98206033/229684421-f543b883-c709-47c9-8b92-e6fed15efd25.png)
+图像旋转变换主要调用getRotationMatrix2D()函数和warpAffine()函数实现，绕图像的中心旋转，函数原型如下：
+
+M = cv2.getRotationMatrix2D(center, angle, scale)
+– center表示旋转中心点，通常设置为(cols/2, rows/2)
+– angle表示旋转角度，正值表示逆时针旋转，坐标原点被定为左上角
+– scale表示比例因子  
+
+rotated = cv2.warpAffine(src, M, (cols, rows))
+– src表示原始图像
+– M表示旋转参数，即getRotationMatrix2D()函数定义的结果
+– (cols, rows)表示原始图像的宽度和高度  
+图像效果如图所示，绕图像中心点逆时针旋转30度。
+![C_%J}J ACO P0W3LBKQAK8Y](https://user-images.githubusercontent.com/98206033/229684537-ead6ca7a-867d-4592-96e5-fe7da693f9d0.png)
+
+

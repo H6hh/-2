@@ -28,5 +28,7 @@ rotated = cv2.warpAffine(src, M, (cols, rows))
 – (cols, rows)表示原始图像的宽度和高度  
 图像效果如图所示，绕图像中心点逆时针旋转30度。
 ![C_%J}J ACO P0W3LBKQAK8Y](https://user-images.githubusercontent.com/98206033/229684537-ead6ca7a-867d-4592-96e5-fe7da693f9d0.png)
+  
+  复合变换：图像平移、镜像、旋转的复合
 
-
+![fuhe](https://user-images.githubusercontent.com/98206033/230704556-a80a3df3-4ff8-4c6e-a69a-3063d81d946a.jpg)
